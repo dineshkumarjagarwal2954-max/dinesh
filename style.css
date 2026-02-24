@@ -1,109 +1,247 @@
-/* ================= RESPONSIVE DESIGN (Updated) ================= */
+/* ================= RESET & BASE ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-/* --- TABLET VIEW (max-width: 1024px) --- */
+body {
+    background: #fdfdfd;
+    overflow-x: hidden;
+    color: #333;
+}
+
+/* Background Design */
+.bg-shape {
+    position: fixed;
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(100px);
+}
+
+.shape1 {
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 77, 109, 0.1);
+    top: -100px;
+    left: -100px;
+}
+
+.shape2 {
+    width: 300px;
+    height: 300px;
+    background: rgba(0, 123, 255, 0.1);
+    bottom: -50px;
+    right: -50px;
+}
+
+/* ================= HEADER ================= */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%; /* Responsive Padding */
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-container {
+    display: flex;
+    gap: 15px;
+}
+
+.logo, .logo1, .logo2 {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ff4d6d;
+}
+
+/* ================= HERO ================= */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 10%;
+    min-height: 85vh;
+    gap: 40px;
+}
+
+.left {
+    width: 50%;
+}
+
+.left h1 {
+    font-size: clamp(32px, 5vw, 55px); /* Fluid Typography */
+    margin: 15px 0;
+    line-height: 1.2;
+    color: #222;
+}
+
+.left h1 span { color: #ff4d6d; }
+.left p { font-size: 1.1rem; margin-bottom: 30px; }
+.highlight { color: orange; font-weight: bold; }
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.buttons button {
+    padding: 14px 30px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.contact { background: #000; color: #fff; }
+.resume { background: #ff4d6d; color: #fff; }
+.buttons button:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+/* Hero Image Area */
+.right {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.circle {
+    width: clamp(250px, 30vw, 350px);
+    height: clamp(250px, 30vw, 350px);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 8px solid #fff;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    animation: floatImg 4s ease-in-out infinite;
+    position: relative;
+    z-index: 5;
+}
+
+.circle img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ================= SERVICES ================= */
+.services {
+    padding: 80px 5%;
+    text-align: center;
+}
+
+.service-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    width: 350px;
+    height: 250px;
+    perspective: 1000px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.card:hover .card-inner { transform: rotateY(180deg); }
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.card-back { background: #111; color: #fff; transform: rotateY(180deg); }
+
+/* Gradients */
+.web .card-front { background: linear-gradient(45deg, #4e73df, #22dded); color: #fff; }
+.dev .card-front { background: linear-gradient(45deg, #e83e8c, #ff9a9e); color: #fff; }
+.responsive .card-front { background: linear-gradient(45deg, #36b9cc, #858796); color: #fff; }
+.custom .card-front { background: linear-gradient(45deg, #f6c23e, #fd7e14); color: #fff; }
+.visual .card-front { background: linear-gradient(45deg, #6f42c1, #20c997); color: #fff; }
+
+/* ================= MEDIA QUERIES (The Magic) ================= */
+
+/* TABLET (Laptops & iPads) */
 @media (max-width: 1024px) {
-    header {
-        padding: 20px 40px; /* Padding thodi kam kar di */
-    }
-
     .hero {
-        padding: 60px 40px;
-        flex-direction: column; /* Content center mein lane ke liye */
+        flex-direction: column;
         text-align: center;
-        gap: 50px;
+        padding: 60px 5%;
     }
 
-    .left, .right {
-        width: 100%;
-    }
+    .left, .right { width: 100%; }
 
-    .left h1 {
-        font-size: 45px;
-    }
-
-    .service-grid {
-        gap: 20px;
-        padding: 0 20px;
-    }
+    .buttons { justify-content: center; }
 
     .card {
-        width: calc(50% - 20px); /* Tablet par 2 cards ek row mein */
-        min-width: 300px;
+        width: calc(45% - 20px); /* 2 cards in a row */
+        min-width: 280px;
     }
 }
 
-/* --- MOBILE VIEW (max-width: 768px) --- */
+/* MOBILE (Phones) */
 @media (max-width: 768px) {
     header {
-        padding: 15px 20px;
-        flex-direction: column; /* Logo aur Nav upar niche */
+        flex-direction: column;
         gap: 15px;
+        padding: 15px;
     }
 
     nav {
-        display: flex;
+        font-size: 14px;
+        gap: 12px;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 10px;
     }
 
-    nav a {
-        margin-left: 0;
-        margin: 0 10px;
-        font-size: 14px;
-    }
-
-    .left h1 {
-        font-size: 32px;
-    }
-
-    .left p {
-        font-size: 16px;
-    }
-
-    .buttons {
-        display: flex;
-        flex-direction: column; /* Buttons ek ke niche ek */
-        gap: 15px;
-        align-items: center;
-    }
+    .left h1 { font-size: 28px; }
 
     .buttons button {
-        width: 80%; /* Mobile par bade buttons */
+        width: 100%; /* Full width buttons for easy tap */
         margin-right: 0;
     }
 
-    .circle {
-        width: 250px; /* Image choti kar di */
-        height: 250px;
-    }
-
-    .services {
-        padding: 60px 15px;
-    }
-
-    .title {
-        font-size: 26px;
-        margin-bottom: 40px;
-    }
-
     .card {
-        width: 100%; /* Mobile par full width card */
-        height: 250px;
+        width: 100%; /* Single column cards */
+        height: 220px;
     }
 
-    .side-circle {
-        display: none; /* Mobile par clean look ke liye extra shapes hata diye */
-    }
+    .side-circle { display: none; } /* Clear clutter on mobile */
 }
 
-/* --- SMALL MOBILE (max-width: 480px) --- */
-@media (max-width: 480px) {
-    .left h1 {
-        font-size: 28px;
-    }
-    
-    .logo, .logo1, .logo2 {
-        font-size: 20px;
-    }
-}
+/* Animations */
+@keyframes floatImg { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
