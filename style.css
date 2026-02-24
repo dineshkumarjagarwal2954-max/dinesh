@@ -1,0 +1,369 @@
+/* ================= RESET & BASE ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #fdfdfd;
+    overflow-x: hidden;
+    color: #333;
+}
+
+/* Background Design */
+.bg-shape {
+    position: fixed;
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(100px);
+}
+
+.shape1 {
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 77, 109, 0.1);
+    top: -100px;
+    left: -100px;
+}
+
+.shape2 {
+    width: 300px;
+    height: 300px;
+    background: rgba(0, 123, 255, 0.1);
+    bottom: -50px;
+    right: -50px;
+}
+
+/* ================= HEADER ================= */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(146, 5, 5, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #e80606;
+}
+
+.logo span {
+    color: #0d0c0d;
+}
+.logo1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(88, 189, 188);
+}
+
+.logo1 span {
+    color: #201e1e;
+    font-family: 'Times New Roman', Times, serif;
+}
+.logo2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(19, 18, 19);
+
+}
+
+.logo2 span {
+    color: #ec4904;
+}
+
+nav a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ff4d6d;
+}
+
+/* ================= HERO ================= */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 100px;
+    min-height: 85vh;
+}
+
+.left {
+    width: 50%;
+}
+
+.left h1 {
+    font-size: 55px;
+    margin: 15px 0;
+    color: #222;
+}
+
+.left h1 span {
+    color: #ff4d6d;
+}
+
+.left p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.highlight {
+    color: orange;
+    font-weight: bold;
+}
+
+.buttons button {
+    padding: 14px 30px;
+    border: none;
+    border-radius: 50px;
+    margin-right: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.contact {
+    background: #000;
+    color: #fff;
+}
+
+.resume {
+    background: #ff4d6d;
+    color: #fff;
+}
+
+.buttons button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Image Animation */
+.right {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.image-area {
+    position: relative;
+}
+
+.circle {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 10px solid #fff;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    animation: floatImg 4s ease-in-out infinite;
+    z-index: 5;
+    position: relative;
+}
+
+.circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Side Circles Flow */
+.side-circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(2px);
+    z-index: 1;
+}
+
+.c1 {
+    width: 80px;
+    height: 80px;
+    background: #ff4d6d;
+    top: -10px;
+    left: -20px;
+    opacity: 0.6;
+    animation: flow 3s infinite alternate;
+}
+
+.c2 {
+    width: 100px;
+    height: 100px;
+    background: #007bff;
+    bottom: -20px;
+    right: -30px;
+    opacity: 0.4;
+    animation: flow 4s infinite alternate-reverse;
+}
+
+@keyframes floatImg {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes flow {
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(15px, 15px);
+    }
+}
+
+/* ================= SERVICES (3+2 CENTERED) ================= */
+.services {
+    padding: 100px 0%;
+    text-align: center;
+}
+
+.title {
+    font-size: 32px;
+    margin-bottom: 60px;
+}
+
+/* Magic Flexbox for 3+2 layout */
+.service-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Niche wale 2 cards ko center karne ke liye */
+    gap: 30px;
+}
+
+.card {
+    width: 350px;
+    /* Card size setup */
+    height: 230px;
+    perspective: 1000px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s;
+    transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Front Image Boxes */
+.box-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #fff;
+    margin-bottom: 15px;
+}
+
+.box-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-back {
+    background: #111;
+    color: #fff;
+    transform: rotateY(180deg);
+}
+
+/* Premium Gradients */
+.web .card-front {
+    background: linear-gradient(45deg, #4e73df, #22dded);
+    color: white;
+}
+
+.dev .card-front {
+    background: linear-gradient(45deg, #e83e8c, #ff9a9e);
+    color: white;
+}
+
+.responsive .card-front {
+    background: linear-gradient(45deg, #36b9cc, #858796);
+    color: white;
+}
+
+.custom .card-front {
+    background: linear-gradient(45deg, #f6c23e, #fd7e14);
+    color: white;
+}
+
+.visual .card-front {
+    background: linear-gradient(45deg, #6f42c1, #20c997);
+    color: white;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width: 992px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .left,
+    .right {
+        width: 100%;
+    }
+
+    .circle {
+        width: 280px;
+        height: 280px;
+        margin: 0 auto;
+    }
+}
+
+@media(max-width: 768px) {
+    header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .left h1 {
+        font-size: 32px;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    /* Mobile par 1 column */
+}

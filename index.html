@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinesh Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+<body>
+
+<div class="bg-shape shape1"></div>
+<div class="bg-shape shape2"></div>
+
+<header>
+    <div class="logo">Dinesh <span>Kumar</span> Meena</div>
+    <div class="logo1">दिनेश<span> कुमार</span> मीना</div>
+    <div class="logo2">Dinesh <span>Kumar</span> Meena</div>
+   
+</header>
+
+<section class="hero">
+    <div class="left reveal-left">
+        <h3>Hy! I am👋</h3>
+        <h1>Dinesh <span>Kumar</span> Jagarwal</h1>
+        <p>A Professional <span class="highlight">MERN STACK</span> Developer</p>
+        <div class="buttons">
+            <button class="contact">Contact</button>
+            <button class="resume">Resume</button>
+        </div>
+    </div>
+
+    <div class="right reveal-right">
+        <div class="image-area">
+            <div class="side-circle c1"></div>
+            <div class="side-circle c2"></div>
+            <div class="circle">
+                <img src="IMG_20250807_204155.jpg.jpeg" alt="profile">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="services">
+    <h2 class="title reveal-top">What Can You Expect From Me?</h2>
+
+    <div class="service-grid">
+        <div class="card web reveal-bottom">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="box-img"><img src="IMG_20250807_204155.jpg.jpeg" alt="Web"></div>
+                    <p>Web Design</p>
+                </div>
+                <div class="card-back"><p>I craft solid and scalable front-end products.</p></div>
+            </div>
+        </div>
+
+        <div class="card dev reveal-bottom">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="box-img"><img src="IMG_20250807_204155.jpg.jpeg" alt="Dev"></div>
+                    <p>Development</p>
+                </div>
+                <div class="card-back"><p>I love to code and bring ideas to life.</p></div>
+            </div>
+        </div>
+
+        <div class="card responsive reveal-bottom">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="box-img"><img src="IMG_20250807_204155.jpg.jpeg" alt="Resp"></div>
+                    <p>Responsive Design</p>
+                </div>
+                <div class="card-back"><p>Accessible across all devices.</p></div>
+            </div>
+        </div>
+
+        <div class="card custom reveal-bottom">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="box-img"><img src="IMG_20250807_204155.jpg.jpeg" alt="Custom"></div>
+                    <p>Customization</p>
+                </div>
+                <div class="card-back"><p>Custom-designed solutions for your needs.</p></div>
+            </div>
+        </div>
+
+        <div class="card visual reveal-bottom">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="box-img"><img src="IMG_20250807_204155.jpg.jpeg" alt="Visual"></div>
+                    <p>Visual Designs</p>
+                </div>
+                <div class="card-back"><p>Clean design patterns & thoughtful interactions.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // JS Animations
+    ScrollReveal().reveal('.reveal-top', { origin: 'top', distance: '50px', duration: 1000 });
+    ScrollReveal().reveal('.reveal-left', { origin: 'left', distance: '80px', duration: 1200 });
+    ScrollReveal().reveal('.reveal-right', { origin: 'right', distance: '80px', duration: 1200 });
+    ScrollReveal().reveal('.reveal-bottom', { origin: 'bottom', distance: '50px', duration: 1000, interval: 200 });
+</script>
+
+</body>
+</html>
